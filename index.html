@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtividade & Bem-Estar</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#121212">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="tab-nav">
+      <button class="tab-button active" data-tab="dashboard">DASHBOARD</button>
+      <button class="tab-button" data-tab="daily">ROTINA DIÁRIA</button>
+      <button class="tab-button" data-tab="settings">CONFIGURAÇÕES</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="tab-content active">
+      <h2>📊 Dashboard</h2>
+      <button id="export-btn">📤 Exportar Relatório</button>
+      <div id="overall-progress" class="progress">Progresso Geral: 0%</div>
+      <div id="points">Pontos: 0</div>
+      <canvas id="mood-chart" width="400" height="200"></canvas>
+      <canvas id="water-chart" width="400" height="200"></canvas>
+      <div id="pending-tasks">
+        <h3>Tarefas Pendentes</h3>
+        <ul id="pending-tasks-list"></ul>
+      </div>
+    </div>
+
+    <!-- Rotina Diária -->
+    <div id="daily" class="tab-content">
+      <div class="section">
+        <h2>💧 Hidratação</h2>
+        <button onclick="addWater(250)">+250ml</button>
+        <div id="water-progress" class="progress">Hidratação: 0ml</div>
+      </div>
+      <div class="section">
+        <h2>✅ Checklist Diário</h2>
+        <div class="checklist">
+          <label><input type="checkbox" id="check1"> Acordar cedo</label>
+          <label><input type="checkbox" id="check2"> Meditar</label>
+          <label><input type="checkbox" id="check3"> Exercício</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configurações -->
+    <div id="settings" class="tab-content">
+      <h2>⚙️ Configurações</h2>
+      <label for="theme-select">Tema:</label>
+      <select id="theme-select">
+        <option value="dark">Escuro</option>
+        <option value="light">Claro</option>
+      </select>
+      <button onclick="applyTheme()">Aplicar Tema</button>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
